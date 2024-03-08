@@ -20,7 +20,7 @@ export async function Sign(data: z.infer<typeof loginFormSchema>) {
 
   try {
     const { email, password } = data;
-    const res = await api.post<UserAuth>(`${process.env.BACK}/user/login`, {
+    const res = await api.post<UserAuth>(`${process.env.BACK_END_URL}/user/login`, {
       email,
       password,
     });
