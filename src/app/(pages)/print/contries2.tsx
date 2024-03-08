@@ -15,7 +15,7 @@ export function Contries() {
                         key={country.id}
                         className="text-black text-md inline-block mr-2"
                     >
-                        {country.id},
+                        {country.name},
                     </span>
                 ))}
             </DataContent>
@@ -26,7 +26,7 @@ export function Contries() {
                         key={country.id}
                         className="text-black text-md inline-block mr-2"
                     >
-                        {country.id},
+                        {country.name},
                     </span>
                 ))}
             </DataContent>
@@ -36,7 +36,7 @@ export function Contries() {
                         key={country.id}
                         className="text-black text-md inline-block mr-2"
                     >
-                        {country.id},
+                        {country.name},
                     </span>
                 ))}
             </DataContent>

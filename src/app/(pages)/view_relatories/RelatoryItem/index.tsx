@@ -6,13 +6,13 @@ import { api } from "@/app/api/axios/api";
 import { usePrintStore } from "@/app/hooks/usePrint";
 
 interface RelatoryItemProps {
-  id: number,
+  id: string,
   Icon: ReactNode,
   title: string,
-  create_at: any,
+  created_at: string,
 }
 
-export function RelatoryItem({ id, title, Icon, create_at }: RelatoryItemProps) {
+export function RelatoryItem({ id, title, Icon, created_at }: RelatoryItemProps) {
   const { onSetPrinting, isPrinting  } = usePrintStore()
 
   function handlePrint() {
@@ -29,7 +29,7 @@ export function RelatoryItem({ id, title, Icon, create_at }: RelatoryItemProps) 
         {Icon}{title}
       </span>
       <span className="text-gray-500">
-        {create_at}
+        {created_at}
       </span>
       <div className="w-max flex items-center gap-4 text-gray-500">
         <Link href={`/print/${id}`}>

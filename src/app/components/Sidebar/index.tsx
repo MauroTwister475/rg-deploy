@@ -18,7 +18,7 @@ export function SideBar() {
           <NextLink 
             key={link.href}
             href={link.href} 
-            text={link.text} 
+            children={link.text} 
             icon={link.icon}
           />
         ))}

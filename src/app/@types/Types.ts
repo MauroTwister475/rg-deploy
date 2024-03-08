@@ -1,14 +1,14 @@
 
 export type RelatoryProps = {
-  id: number,
+  id: string,
   title: string,
-  create_at: Date,
+  created_at: Date,
 }
 
 export type State = "Concorda" | "Discorda" | "Em abstenção" | null;
 
 export type ContryData = {
-  id: number,
+  id: string,
   name: string,
   state: State,
 }
@@ -18,21 +18,18 @@ export type RelatoryFormProps = {
 }
 
 export type Report = {
+  title: string,
   theme: string,
-	title: string,
-	point: string,
-  create_at: string,
-	reference: string,
-	atribuition: string,
-	cod_document: string,
-	Angola_participation: string,
-	decision: string,
-	summary: string,
-	meeting_number: string,
-	comment: string,
-	votoscontra: number | null,
-	votosfavor: number | null,
-	votosemabstencao: number | null,
+  data: any,
+  participation_of_angola: string,
+  decision: string,
+  point: string,
+  reference: string,
+  cod_document: string,
+  atribuition: string,
+  resume: string,
+  number_meeting: string,
+  comment: string,
 }
 
 // type UserAuth api
