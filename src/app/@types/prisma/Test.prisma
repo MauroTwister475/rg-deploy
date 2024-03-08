@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model report {
+  id                      String @id @default(uuid())
+  title                   String
+  theme                   String
+  data                    String
+  participation_of_angola String
+  decision                String
+  point                   String
+  reference               String
+  cod_document            String
+  atribuition             String
+  comment                 String
+}
+
+model members {
+  id       String @id @default(uuid())
+  name     String
+  iso_code String
+}
