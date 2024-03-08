@@ -11,29 +11,29 @@ export function RelatoryList() {
 
   useEffect(() => {
     async function getRelatoriesData() {
-      const res = await api.get("/view-reports");
+      const res = await api.get("/report/view-recents");
       const reports = res.data;  
-      setReports(reports?.reports);
+      setReports(reports);
     }
     getRelatoriesData();
   }, []);
 
+  console.log(reports)
+
   return (
     <div className="w-full flex flex-col gap-2">
       <div className="w-full scroll h-80 overflow-auto flex flex-col gap-2 items-center justify-">
-        {reports.length > 0 ?
+        {
           reports.map(report => (
             <RelatoryItem
               key={report.id}
               id={report.id}
               Icon={<File className="text-gray-500" />}
               title={report.title}
-              created_at={new Date(report.created_at).toLocaleString("pt-BR", {
-                dateStyle: "medium",
-              })}
+              create_at={report.create_at}
             />
-          )) :
-          reports.length === 0  && <SkeletonRelatory /> 
+          )) 
+          // reports.length === 0  && <SkeletonRelatory /> 
         }
       </div>
     </div>

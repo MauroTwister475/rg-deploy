@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import { ModalContextProvider } from "@/app/contexts/modalContext";
 import { VotationContextProvider } from "@/app/hooks/useVotation";
+import { FormDataProvider } from "@/app/hooks/useFormData";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -18,20 +19,20 @@ export const metadata: Metadata = {
   },
 }
 
-interface RootLayoutProps {
-  children: ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: {
+  children: ReactNode, types: ReactNode 
+}) {
   return (
     <html lang="en" className={poppins.className}>
-        <body className="w-screen h-screen bg-shape-100 antialiased">
+      <body className="w-screen h-screen bg-shape-100 antialiased">
+        <FormDataProvider>
           <ModalContextProvider>
             <VotationContextProvider>
               {children}
             </VotationContextProvider>
           </ModalContextProvider>
-        </body>
+        </FormDataProvider>
+      </body>
     </html>
   );
 }

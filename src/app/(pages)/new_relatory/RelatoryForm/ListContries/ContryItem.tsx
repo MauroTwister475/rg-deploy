@@ -1,17 +1,12 @@
 "use client";
 import { ContryData } from "@/app/@types/Types";
 import { UseVotation } from "@/app/hooks/useVotation";
-import { ButtonCloseModal } from "@/app/components/ButtonCloseModal";
-// import { SkeletonRelatory } from "@/app/components/Skeleton/Relatory";
-import { useModal } from "@/app/hooks/useModal";
 
 export function ContryItem() {
   const { SelectChange, members } = UseVotation();
-  const { onSetIsOpen } = useModal();
 
   function renderContries() {
-    return members.length > 0 ?
-      members?.map((contry, index) => (
+    return members?.map((contry, index) => (
         <div
           className="w-full shadow2 h-12 rounded-md bg-white border p-4 flex items-center justify-between"
           key={index}
@@ -32,7 +27,7 @@ export function ContryItem() {
           </select>
         </div>
       ))
-      : <h1>Carregando lista de membros...</h1>
+      // : <h1>Carregando lista de membros...</h1>
   }
 
   return (

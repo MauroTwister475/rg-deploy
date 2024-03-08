@@ -6,11 +6,11 @@ import { ReactNode } from "react";
 interface NextLinkProps {
   href: string;
   className?: string;
-  children: string | ReactNode;
+  text: string | ReactNode;
   icon?: ReactNode;
 }
 
-export function NextLink({ href, children, icon, className }: NextLinkProps) {
+export function NextLink({ href, text, icon, className }: NextLinkProps) {
   const path = usePathname();
   const activelink = path === href;
 
@@ -20,7 +20,7 @@ export function NextLink({ href, children, icon, className }: NextLinkProps) {
       data-activelink={activelink}
       className={twM(`w-full flex items-center gap-2 text-white data-[activelink=true]:text-main-500 data-[activelink=true]:bg-white p-4 rounded-md`, className)}
     >
-      {icon} <span>{children}</span>
+      {icon} <span>{text}</span>
     </Link>
   );
 }
