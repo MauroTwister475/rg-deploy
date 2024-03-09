@@ -6,11 +6,9 @@ import { Root } from "..";
 import { Toast } from "@/app/utils/FeedBack/Toast";
 import { UseVotation } from "@/app/hooks/useVotation";
 import { useFormData } from "@/app/hooks/useFormData";
-import { api } from "@/app/api/axios/api";
 import { FormEvent, useState } from "react";
 import  axios from "axios"
-
-const URLBACK = "https://api-rg.onrender.com";
+import { URLBACK } from "@/app/constants/URL";
 
 export function RelatoryForm() {
   const { onSetIsOpen, isOpen } = Root.useModal();

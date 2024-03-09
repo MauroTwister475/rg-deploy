@@ -4,14 +4,15 @@ import { RelatoryItem } from "../RelatoryItem";
 import { RelatoryProps } from "@/app/@types/Types"
 import { SkeletonRelatory } from "@/app/components/Skeleton/Relatory";
 import { File } from "lucide-react";
-import { api } from "@/app/api/axios/api";
+import axios from "axios";
+import { URLBACK } from "@/app/constants/URL";
 
 export function RelatoryList() {
   const [reports, setReports] = useState<RelatoryProps[]>([]);
 
   useEffect(() => {
     async function getRelatoriesData() {
-      const res = await api.get("/report/view-recents");
+      const res = await axios.get(`${URLBACK}/report/view-recents`);
       const reports = res.data;  
       setReports(reports);
     }
