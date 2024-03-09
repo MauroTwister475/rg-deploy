@@ -44,9 +44,9 @@ export function RelatoryForm() {
 
       // so gera se selecionar pelomenos um contries criar um booelean q estara no contexo para a verificação
       setIsSubmitting(true);
-      const res1 = await api.post("/votosfavor", { agree });
-      const res2 = await api.post("/votoscontra", { disagree });
-      const res3 = await api.post("/votosabstencao", { abst });
+      const res1 = await axios.post(`${URLBACK}/votosfavor`, { agree });
+      const res2 = await axios.post(`${URLBACK}/votoscontra`, { disagree });
+      const res3 = await axios.post(`${URLBACK}/votosabstencao`, { abst });
       console.log("console de teste: ")
       
       console.log(
