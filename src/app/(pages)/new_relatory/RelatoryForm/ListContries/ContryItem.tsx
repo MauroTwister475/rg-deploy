@@ -6,7 +6,7 @@ export function ContryItem() {
   const { SelectChange, members } = UseVotation();
 
   function renderContries() {
-    return members?.map((contry, index) => (
+    return members.length > 0 ? members?.map((contry, index) => (
         <div
           className="w-full shadow2 h-12 rounded-md bg-white border p-4 flex items-center justify-between"
           key={index}
@@ -27,7 +27,7 @@ export function ContryItem() {
           </select>
         </div>
       ))
-      // : <h1>Carregando lista de membros...</h1>
+       : <h1>Carregando lista de membros...</h1>
   }
 
   return (
