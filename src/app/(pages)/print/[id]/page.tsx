@@ -67,7 +67,7 @@ export default function Print({ params: { id } }: PrintProps) {
     }
 
     async function getReportById() {
-      const res = await api.get<ReportContries>(`/report/view-report/${id}`);
+      const res = await axios.get<ReportContries>(`${URLBACK}/report/view-report/${id}`);
       setContriesVote(res?.data);
     }
 
