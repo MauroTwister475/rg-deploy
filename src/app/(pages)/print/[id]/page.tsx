@@ -1,14 +1,14 @@
 "use client"
 import Image from "next/image";
-import { api } from "@/app/api/axios/api";
 import { DataContent } from "../DataContent";
-// import { Contries } from "../contries";
 import { Report } from "@/app/@types/Types";
 import { useEffect, useRef, useState } from "react";
 import unesco from "@/app/assets/unescoInsignia.jpg"
 import insignia from "@/app/assets/insignia.jpg"
 import { useReactToPrint } from "react-to-print";
 import { usePrintStore } from "@/app/hooks/usePrint";
+import axios from "axios";
+import { URLBACK } from "@/app/constants/URL";
 
 interface PrintProps {
   params: {
@@ -62,7 +62,7 @@ export default function Print({ params: { id } }: PrintProps) {
 
   useEffect(() => {
     async function getReports() {
-      const res = await api.get<Report>(`/report/view-report/${id}`);
+      const res = await axios.get<Report>(`${URLBACK}/report/view-report/${id}`);
       setReport(res.data);
     }
 
