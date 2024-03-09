@@ -10,6 +10,8 @@ import { api } from "@/app/api/axios/api";
 import { FormEvent, useState } from "react";
 import  axios from "axios"
 
+const URLBACK = "https://api-rg.onrender.com";
+
 export function RelatoryForm() {
   const { onSetIsOpen, isOpen } = Root.useModal();
   const { agree, disagree, abst } = UseVotation();
@@ -53,11 +55,11 @@ export function RelatoryForm() {
         res3.data,
       ); // rtorno da 
       
-      const votosfavor = ((await api.get("/votosfavor"))).data;
-      const votoscontra = ((await api.get("/votoscontra"))).data;
-      const votosemabstencao = ((await api.get("/votosabstencao"))).data;
+      const votosfavor = ((await axios.get(`${URLBACK}/votosfavor`))).data;
+      const votoscontra = ((await axios.get(`${URLBACK}/votoscontra`))).data;
+      const votosemabstencao = ((await axios.get(`${URLBACK}/votosabstencao`))).data;
 
-      await api.post("/report", {
+      await axios.post(`${URLBACK}/report`, {
         theme: theme,
         title: title,
         point: point,
