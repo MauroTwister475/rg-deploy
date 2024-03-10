@@ -21,7 +21,7 @@ export function SideBar() {
       </ul>
       <SignOutButton className="lg:flex gap-2 text-white hidden">
         <LogOut className="text-white" />
-        <span>Sair</span>
+        <span className="text-white">Sair</span>
       </SignOutButton>
     </div>
   )
