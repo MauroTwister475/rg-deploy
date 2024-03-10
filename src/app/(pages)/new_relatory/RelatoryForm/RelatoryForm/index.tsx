@@ -7,7 +7,7 @@ import { Toast } from "@/app/utils/FeedBack/Toast";
 import { UseVotation } from "@/app/hooks/useVotation";
 import { useFormData } from "@/app/hooks/useFormData";
 import { FormEvent, useState } from "react";
-import  axios from "axios"
+import axios from "axios"
 import { URLBACK } from "@/app/constants/URL";
 
 export function RelatoryForm() {
@@ -25,19 +25,19 @@ export function RelatoryForm() {
     e.preventDefault();
 
     try {
-      const { 
-        Angola_participation, 
-        atribuition, 
-        cod_document, 
-        comment, 
-        create_at, 
-        decision, 
-        meeting_number, 
-        point, 
-        reference, 
-        summary, 
-        theme, 
-        title 
+      const {
+        Angola_participation,
+        atribuition,
+        cod_document,
+        comment,
+        create_at,
+        decision,
+        meeting_number,
+        point,
+        reference,
+        summary,
+        theme,
+        title
       } = formData;
 
       // so gera se selecionar pelomenos um contries criar um booelean q estara no contexo para a verificação
@@ -46,13 +46,13 @@ export function RelatoryForm() {
       const res2 = await axios.post(`${URLBACK}/votoscontra`, { disagree });
       const res3 = await axios.post(`${URLBACK}/votosabstencao`, { abst });
       console.log("console de teste: ")
-      
+
       console.log(
         res1.data,
         res2.data,
         res3.data,
       ); // rtorno da 
-      
+
       const votosfavor = ((await axios.get(`${URLBACK}/votosfavor`))).data;
       const votoscontra = ((await axios.get(`${URLBACK}/votoscontra`))).data;
       const votosemabstencao = ((await axios.get(`${URLBACK}/votosabstencao`))).data;
@@ -75,7 +75,24 @@ export function RelatoryForm() {
         votosemabstencao: votosemabstencao?.id,
       });
       setIsSubmitting(false);
-      
+      setFormData({
+        theme: '',
+        title: '',
+        point: '',
+        reference: '',
+        atribuition: '',
+        cod_document: '',
+        Angola_participation: '',
+        decision: '',
+        summary: '',
+        meeting_number: '',
+        comment: '',
+        create_at: '',
+        votoscontra: null,
+        votosfavor: null,
+        votosemabstencao: null,
+      });
+
       Root.SucessMessage("Relatório criado com sucesso!");
     } catch (error) {
       Root.ErrorMessage("Algo deu errado");
@@ -95,6 +112,7 @@ export function RelatoryForm() {
       <div className="w-full flex gap-4">
         <Root.InputGroup>
           <Form.Input
+            required
             type="text"
             label="Título"
             name="title"
@@ -105,10 +123,12 @@ export function RelatoryForm() {
             type="text"
             label="Tema"
             name="theme"
+            required
             value={formData.theme}
             onChange={handleChange}
           />
           <Form.Input
+            required
             type="text"
             label="Decisão"
             name="decision"
@@ -116,6 +136,7 @@ export function RelatoryForm() {
             onChange={handleChange}
           />
           <Form.Input
+            required
             type="text"
             label="Número da reunião"
             name="meeting_number"
@@ -125,6 +146,7 @@ export function RelatoryForm() {
         </Root.InputGroup>
         <Root.InputGroup className="gap-2 m5-5">
           <Form.Input
+            required
             type="text"
             label="Participação de Angola"
             name="Angola_participation"
@@ -132,6 +154,7 @@ export function RelatoryForm() {
             onChange={handleChange}
           />
           <Form.Select
+            required
             id="point"
             label="Ponto"
             name="point"
@@ -148,6 +171,7 @@ export function RelatoryForm() {
           </Form.Select>
           <Form.Select
             id="refe"
+            required
             label="Referência"
             name="reference"
             value={formData.reference}
@@ -163,6 +187,7 @@ export function RelatoryForm() {
         </Root.InputGroup>
         <Root.InputGroup>
           <Form.Input
+            required
             type="text"
             label="Atribuição"
             name="atribuition"
@@ -170,6 +195,7 @@ export function RelatoryForm() {
             onChange={handleChange}
           />
           <Form.Input
+            required
             type="text"
             label="Código do documento"
             name="cod_document"
@@ -177,6 +203,7 @@ export function RelatoryForm() {
             onChange={handleChange}
           />
           <Form.Input
+            required
             type="date"
             label="Data"
             name="create_at"
