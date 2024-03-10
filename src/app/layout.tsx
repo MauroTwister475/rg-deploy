@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { ModalContextProvider } from "@/app/contexts/modalContext";
 import { VotationContextProvider } from "@/app/hooks/useVotation";
 import { FormDataProvider } from "@/app/hooks/useFormData";
+import { Theme } from "@radix-ui/themes"
+import '@radix-ui/themes/styles.css';
 import "./globals.css";
 
 const poppins = Poppins({
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: {
-  children: ReactNode, types: ReactNode 
+  children: ReactNode, types: ReactNode
 }) {
   return (
     <html lang="en" className={poppins.className}>
@@ -28,7 +30,9 @@ export default function RootLayout({ children }: {
         <FormDataProvider>
           <ModalContextProvider>
             <VotationContextProvider>
-              {children}
+              <Theme>
+                {children}
+              </Theme>
             </VotationContextProvider>
           </ModalContextProvider>
         </FormDataProvider>

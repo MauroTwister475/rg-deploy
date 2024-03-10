@@ -13,19 +13,17 @@ export function RelatoryList() {
   useEffect(() => {
     async function getRelatoriesData() {
       const res = await axios.get(`${URLBACK}/report/view-recents`);
-      const reports = res.data;  
+      const reports = res.data;
       setReports(reports);
     }
     getRelatoriesData();
   }, []);
 
-  console.log(reports)
-
   return (
     <div className="w-full flex flex-col gap-2">
       <div className="w-full scroll h-80 overflow-auto flex flex-col gap-2 items-center justify-">
-        {
-          reports.map(report => (
+        {reports.length === 0 ? <SkeletonRelatory />
+          : reports.map(report => (
             <RelatoryItem
               key={report.id}
               id={report.id}
@@ -33,8 +31,7 @@ export function RelatoryList() {
               title={report.title}
               create_at={report.create_at}
             />
-          )) 
-          // reports.length === 0  && <SkeletonRelatory /> 
+          ))
         }
       </div>
     </div>

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { twM } from "@/app/utils/twMerge";
 import { usePathname } from "next/navigation";

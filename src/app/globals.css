@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body, html {
-  overflow-x: hidden;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }

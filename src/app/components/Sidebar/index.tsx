@@ -1,15 +1,12 @@
-"use client";
 import { NAVBAR_LINKS } from "@/app/constants/Links";
 import { NextLink } from "../NextLink";
 import { LogOut } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"
 
 export function SideBar() {
-  const path = usePathname();
 
   return (
-    <div className={`bg-main-500 h-screen navbar flex flex-col justify-between items-center p-4 ${path.includes('print') && 'hidden'}`}>
+    <div className={`bg-main-500 h-screen navbar flex flex-col justify-between items-center p-4`}>
       <div className="text-white flex gap">
         <img src="./logo unesco.png" alt='logo unesco' />
       </div>

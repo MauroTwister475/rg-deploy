@@ -3,37 +3,32 @@ import { PageRoot } from "@/app/components/PageRoot";
 import { RelatoryItem } from "../view_relatories/RelatoryItem";
 import { File } from "lucide-react";
 import { DashMap } from "./DashItem/DashMap";
-import { api } from "@/app/api/axios/api";
 import { RelatoryProps } from "@/app/@types/Types";
-import { AuthStore } from "@/app/hooks/useAuth";
+import { URLBACK } from "@/app/constants/URL";
+import axios from "axios";
 
 export default async function Dashboard() {
-  // const userToken = AuthStore.getState().user.token
-  // const reports = (await api.get("/report/view-recents", {
-  //   headers: {
-  //     Authorization: `Bearer ${userToken}`
-  //   }
-  // })).data as RelatoryProps[];
+  const reports = (await axios.get<RelatoryProps[]>(`${URLBACK}/report/view-recents`)).data;
 
   return (
-    <PageRoot classeName="w-full px-0"> {/* px-16 */}
+    <PageRoot classeName="w-full">
       <TitleSection title="Dashboard" />
       <div className="w-full h-full flex flex-col gap-8 pt-6">
         <DashMap />
         <div className="w-full">
           <TitleSection title="Relatórios Recentes" />
           <div className="w-full flex flex-col gap-2 mt-6">
-            {/* { reports?.map(relatory => (
+            {reports?.map(relatory => (
               <RelatoryItem
                 key={relatory.id}
                 id={relatory.id}
                 Icon={<File className="text-gray-500" />}
                 title={relatory.title}
-                created_at={new Date(relatory.created_at).toLocaleString("pt-BR", {
-                  dateStyle: "medium",
-                })} */}
-              {/* /> */}
-            {/* ))}  */}
+                create_at={new Date(relatory.create_at).toLocaleString("pt-BR", {
+                  dateStyle: "long",
+                })}
+              />
+            ))}
           </div>
         </div>
       </div>
