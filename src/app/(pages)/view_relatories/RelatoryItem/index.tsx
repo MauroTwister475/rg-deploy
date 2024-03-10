@@ -1,9 +1,8 @@
 "use client";
+import { ReactNode, useRef } from "react";
 import Link from "next/link"
 import { Eye, Printer } from "lucide-react"
-import { ReactNode } from "react";
-import { api } from "@/app/api/axios/api";
-import { usePrintStore } from "@/app/hooks/usePrint";
+import { useReactToPrint } from "react-to-print";
 
 interface RelatoryItemProps {
   id: number,
@@ -13,15 +12,19 @@ interface RelatoryItemProps {
 }
 
 export function RelatoryItem({ id, title, Icon, create_at }: RelatoryItemProps) {
-  const { onSetPrinting, isPrinting  } = usePrintStore()
+  const relatoryRef = useRef<HTMLDivElement | null>(null);
 
-  function handlePrint() {
-    setTimeout(() => {
-      window.print()
-    }, 3500);
-    // onSetPrinting(true);
-  }
-  console.log("IMPRIMIR: ", +isPrinting)
+  const onPrintReport = useReactToPrint({
+    content: () => relatoryRef?.current,
+    pageStyle: "@page { size: A4 portrait; margin: 0cm; } @media print { body { -webkit-print-color-adjust: exact; } }"
+  });
+
+  // function handlePrint() {
+  //   setTimeout(() => {
+  //     window.print()
+  //   }, 3500);
+  //   // onSetPrinting(true);
+  // }
   
   return (
     <div className="w-full shadow-sm h-14 rounded-lg bg-white border px-6 flex items-center justify-between">
@@ -35,7 +38,7 @@ export function RelatoryItem({ id, title, Icon, create_at }: RelatoryItemProps) 
         <Link href={`/print/${id}`}>
           <Eye size={20} />
         </Link>
-        <Link href={`/print/${id}`} onClick={handlePrint}>
+        <Link href={`/print/${id}`} onClick={onPrintReport}>
           <Printer size={18} />
         </Link>
       </div>

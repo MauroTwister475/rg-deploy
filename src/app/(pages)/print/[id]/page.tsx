@@ -55,10 +55,6 @@ export default function Print({ params: { id } }: PrintProps) {
   const relatoryRef = useRef<HTMLDivElement | null>(null);
   const { isPrinting } = usePrintStore()
 
-  const onPrintReport = useReactToPrint({
-    content: () => relatoryRef?.current,
-    pageStyle: "@page { size: A4 portrait; margin: 0cm; } @media print { body { --webkit-print-color-adjust: exact; } }"
-  });
 
   useEffect(() => {
     async function getReports() {
@@ -71,18 +67,13 @@ export default function Print({ params: { id } }: PrintProps) {
       setContriesVote(res?.data);
     }
 
-    function verifyPrinter() {
-      if (isPrinting) {
-        onPrintReport()
-      }
-    }
     getReports();
     getReportById();
     // verifyPrinter();
   }, []);
 
   return (
-    <div ref={relatoryRef} className="w-[793px] mx-auto h-max pb-2 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2">
+    <div ref={relatoryRef} className="w-[793px] h-max pb-2 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2">
       <div className="w-full flex items-center justify-between">
         <div className="w-max flex flex-col text-center items-center justify-center uppercase">
           <Image className="w-24" src={insignia} alt="logo" />
