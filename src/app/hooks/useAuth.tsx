@@ -8,7 +8,7 @@ interface AuthProps {
 }
 
 function getUserFromCookies(): UserAuth {
-  const userCookie = cookies!.get('SG.user')
+  const userCookie = cookies!.get('RG.user')
   if (userCookie) {
     const user: UserAuth = JSON.parse(userCookie);
     console.log(user);
