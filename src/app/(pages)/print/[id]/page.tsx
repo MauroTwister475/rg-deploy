@@ -95,7 +95,7 @@ export default function Print({ params: { id } }: PrintProps) {
           <DataContent content="" className="text-center">
             <h1 className="text-xl font-bold">{report?.title}</h1>
           </DataContent>
-          <DataContent className="mt-4 ml-5" content="Ponto">
+          <DataContent className="mt-4 ml-5" content="Ponto:">
             {report?.point}
           </DataContent>
         </section>
@@ -126,13 +126,13 @@ export default function Print({ params: { id } }: PrintProps) {
               {report?.comment}
             </span>
           </DataContent>
-          <DataContent content="Referência">
+          <DataContent content="Referência:">
             {report?.reference}
           </DataContent>
-          <DataContent content="Documento">
+          <DataContent content="Documento:">
             {report?.cod_document}
           </DataContent>
-          <DataContent content="Participação de Angola">
+          <DataContent content="Participação de Angola:">
             {report?.Angola_participation}
           </DataContent>
           <DataContent content="Países a favor:">
@@ -159,7 +159,7 @@ export default function Print({ params: { id } }: PrintProps) {
               </span>
             ))}
           </DataContent>
-          <DataContent content="Decisão">
+          <DataContent content="Decisão:">
             {report?.decision}
           </DataContent>
 
