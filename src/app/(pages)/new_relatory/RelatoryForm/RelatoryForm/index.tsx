@@ -161,7 +161,7 @@ export function RelatoryForm() {
             value={formData.point}
             onChange={handleChange}
           >
-            <option value="unselecte" disabled selected>Selecione uma opção</option>
+            <option selected>Selecione uma opção</option>
             {Root.POINTS.map(({ point }) => (
               <option value={point} key={point}>
                 {point}
@@ -176,7 +176,7 @@ export function RelatoryForm() {
             value={formData.reference}
             onChange={handleChange}
           >
-            <option disabled >Selecione uma opção</option>
+            <option disabled>Selecione uma opção</option>
             {Root.REFERENCES.map(({ reference }) => (
               <option key={reference} selected={formData.reference === reference}>
                 {reference}
@@ -217,9 +217,7 @@ export function RelatoryForm() {
           >
             Selecionar Países
           </Form.Button>
-
         </Root.InputGroup>
-
       </div>
       <Root.InputGroup className="flex items-center flex-row">
         <div className="w-full flex flex-col">

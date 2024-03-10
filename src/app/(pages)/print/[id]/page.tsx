@@ -120,7 +120,6 @@ export default function Print({ params: { id } }: PrintProps) {
           >
           </textarea>
         </div>
-
         <div className="w-full flex flex-col gap-4 mt-4 px-6">
           <DataContent content="Comentário:">
             <span>
@@ -133,7 +132,7 @@ export default function Print({ params: { id } }: PrintProps) {
           <DataContent content="Documento">
             {report?.cod_document}
           </DataContent>
-          <DataContent content="Participação de angola">
+          <DataContent content="Participação de Angola">
             {report?.Angola_participation}
           </DataContent>
           <DataContent content="Países a favor:">
@@ -152,7 +151,7 @@ export default function Print({ params: { id } }: PrintProps) {
               </span>
             ))}
           </DataContent>
-          <DataContent content="Países que se abstiveram:">
+          <DataContent content="Países que se abstiveram:">
             {contriesVote?.votosemabstencao?.members.map((contry: any, index: number) => (
               <span>
                 {contry.name}
