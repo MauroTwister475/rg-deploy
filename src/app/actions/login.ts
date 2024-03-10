@@ -31,7 +31,7 @@ export async function Sign(data: z.infer<typeof loginFormSchema>) {
       user = userAuth;
       console.log(user);
       AuthStore.getState().onSetAuthUser(user);
-      cookies().set('SG.user', JSON.stringify(userAuth), { // tentar setar o token como o usuario todo
+      cookies().set('RG.user', JSON.stringify(userAuth), { // tentar setar o token como o usuario todo
         secure: true,
         maxAge: 60 * 60 * 24,
       });
