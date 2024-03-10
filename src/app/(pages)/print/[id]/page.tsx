@@ -108,7 +108,6 @@ export default function Print({ params: { id } }: PrintProps) {
           <span>
             {new Date(report!?.create_at).toLocaleString("BR", {
               dateStyle: "full",
-              numberingSystem: ""
             })}
           </span>
         </div>
