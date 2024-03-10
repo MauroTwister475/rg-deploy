@@ -1,10 +1,9 @@
 import { NAVBAR_LINKS } from "@/app/constants/Links";
 import { NextLink } from "../NextLink";
 import { LogOut } from "lucide-react";
-import Link from "next/link";
+import { SignOutButton } from "../SignOutButton";
 
 export function SideBar() {
-
   return (
     <div className={`bg-main-500 h-screen navbar flex flex-col justify-between items-center p-4`}>
       <div className="text-white flex gap">
@@ -20,10 +19,10 @@ export function SideBar() {
           />
         ))}
       </ul>
-      <Link href="/" prefetch className="flex gap-2 text-white">
-        <LogOut className=""/> 
+      <SignOutButton className="lg:flex gap-2 text-blue-600 hidden">
+        <LogOut className="" />
         <span>Sair</span>
-      </Link>
+      </SignOutButton>
     </div>
   )
 }
