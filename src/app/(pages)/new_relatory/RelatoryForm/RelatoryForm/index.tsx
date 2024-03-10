@@ -162,6 +162,7 @@ export function RelatoryForm() {
             onChange={handleChange}
           >
             <>
+              <option disabled>Selecione uma opção</option>
               {Root.POINTS.map(({ point }) => (
                 <option key={point}>
                   {point}
@@ -177,6 +178,7 @@ export function RelatoryForm() {
             value={formData.reference}
             onChange={handleChange}
           >
+            <option disabled>Selecione uma opção</option>
             {Root.REFERENCES.map(({ reference }) => (
               <option key={reference}>
                 {reference}
