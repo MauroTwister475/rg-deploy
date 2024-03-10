@@ -1,7 +1,7 @@
 "use client";
-import { ReactNode, useRef } from "react";
+import { ReactNode } from "react";
 import Link from "next/link"
-import { Eye, Printer } from "lucide-react"
+import { Eye } from "lucide-react"
 
 interface RelatoryItemProps {
   id: number,
@@ -17,7 +17,9 @@ export function RelatoryItem({ id, title, Icon, create_at }: RelatoryItemProps) 
         {Icon}{title}
       </span>
       <span className="w-[50%] text-gray-500">
-        {create_at}
+        {new Date(create_at).toLocaleString("BR", {
+          dateStyle: "short",
+        })}
       </span>
       <div className="w-full text-end flex justify-end text-gray-500">
         <Link href={`/print/${id}`}>

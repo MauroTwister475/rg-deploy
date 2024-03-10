@@ -108,6 +108,7 @@ export default function Print({ params: { id } }: PrintProps) {
           <span>
             {new Date(report!?.create_at).toLocaleString("BR", {
               dateStyle: "full",
+              numberingSystem: ""
             })}
           </span>
         </div>
@@ -137,13 +138,28 @@ export default function Print({ params: { id } }: PrintProps) {
             {report?.Angola_participation}
           </DataContent>
           <DataContent content="Países a favor:">
-            {contriesVote?.votosfavor?.members.map((contry: any) => <span>{contry.name}, </span>)}
+            {contriesVote?.votosfavor?.members.map((contry: any, index: number) => (
+              <span>
+                {contry.name}
+                {index === contriesVote.votosfavor.members.length - 1 ? '.' : ','}&nbsp;
+              </span>
+            ))}
           </DataContent>
           <DataContent content="Países contra:">
-            {contriesVote?.votoscontra?.members.map((contry: any) => <span>{contry.name}, </span>)}
+            {contriesVote?.votoscontra?.members.map((contry: any, index: number) => (
+              <span>
+                {contry.name}
+                {index === contriesVote.votosfavor.members.length - 1 ? '.' : ','}&nbsp;
+              </span>
+            ))}
           </DataContent>
           <DataContent content="Países que se abstiveram:">
-            {contriesVote?.votosemabstencao?.members.map((contry: any) => <span>{contry.name}, </span>)}
+            {contriesVote?.votosemabstencao?.members.map((contry: any, index: number) => (
+              <span>
+                {contry.name}
+                {index === contriesVote.votosfavor.members.length - 1 ? '.' : ','}&nbsp;
+              </span>
+            ))}
           </DataContent>
           <DataContent content="Decisão">
             {report?.decision}
