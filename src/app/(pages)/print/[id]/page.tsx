@@ -102,7 +102,7 @@ export default function Print({ params: { id } }: PrintProps) {
         <div className="w-full flex items-end flex-col justify-between px-6">
           <h2 className="font-bold text-md">{report?.cod_document} EX/4.I.E</h2>
           <h1>
-            <span className="font-bold text-end ">Conselho executivo</span> <br />
+            <span className="font-bold text-end ">Conselho Executivo</span> <br />
             <span className="mr-auto">{report?.meeting_number}ª reunião</span>
           </h1>
           <span>
@@ -120,7 +120,13 @@ export default function Print({ params: { id } }: PrintProps) {
           >
           </textarea>
         </div>
+
         <div className="w-full flex flex-col gap-4 mt-4 px-6">
+          <DataContent content="Comentário:">
+            <span>
+              {report?.comment}
+            </span>
+          </DataContent>
           <DataContent content="Referência">
             {report?.reference}
           </DataContent>
@@ -130,32 +136,28 @@ export default function Print({ params: { id } }: PrintProps) {
           <DataContent content="Participação de angola">
             {report?.Angola_participation}
           </DataContent>
-          <DataContent content="Países A favor">
+          <DataContent content="Países a favor:">
             {contriesVote?.votosfavor?.members.map((contry: any) => <span>{contry.name}, </span>)}
           </DataContent>
-          <DataContent content="Países contra">
+          <DataContent content="Países contra:">
             {contriesVote?.votoscontra?.members.map((contry: any) => <span>{contry.name}, </span>)}
           </DataContent>
-          <DataContent content="Países em abstenção">
+          <DataContent content="Países que se abstiveram:">
             {contriesVote?.votosemabstencao?.members.map((contry: any) => <span>{contry.name}, </span>)}
           </DataContent>
           <DataContent content="Decisão">
             {report?.decision}
           </DataContent>
-          <div className="w-full overflow-hidden text-justify">
-            <span>
-              {report?.comment}
-            </span>
-          </div>
+
         </div>
       </div>
 
-        <button
-          onClick={onPrintReport}
-          className="w-max bg-main-500 rounded-md text-white p-2 absolute top-0 right-5"
-        >
-          Imprimir
-        </button>
+      <button
+        onClick={onPrintReport}
+        className="w-max bg-main-500 rounded-md text-white p-2 absolute top-0 right-5"
+      >
+        Imprimir
+      </button>
     </ScrollArea>
   );
 }

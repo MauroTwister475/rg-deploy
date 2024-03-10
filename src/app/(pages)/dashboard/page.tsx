@@ -7,7 +7,7 @@ import { URLBACK } from "@/app/constants/URL";
 import axios from "axios";
 
 export default async function Dashboard() {
-  const reports = (await axios.get(`${URLBACK}/report/view-recents`)).data;
+  // const reports = (await axios.get(`${URLBACK}/report/view-recents`)).data;
 
   return (
     <PageRoot classeName="w-full">
@@ -17,7 +17,7 @@ export default async function Dashboard() {
         <div className="w-full">
           <TitleSection title="Relatórios Recentes" />
           <div className="w-full flex flex-col gap-2 mt-6">
-            {reports?.map((relatory: any) => (
+            {/* {reports?.map((relatory: any) => (
               <RelatoryItem
                 key={relatory?.id}
                 id={relatory?.id}
@@ -27,7 +27,7 @@ export default async function Dashboard() {
                   dateStyle: "long",
                 })}
               />
-            ))}
+            ))} */}
           </div>
         </div>
       </div>

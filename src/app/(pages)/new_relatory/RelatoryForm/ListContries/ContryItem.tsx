@@ -8,7 +8,7 @@ export function ContryItem() {
   function renderContries() {
     return members.length > 0 ? members?.map((contry, index) => (
       <div
-        className="w-full shadow2 h-12 rounded-md bg-white border p-4 flex items-center justify-between"
+        className="w-full shadow2 h-12 rounded-md bg-red border p-4 flex items-center justify-between"
         key={index}
       >
         <span className="text-gray-500">

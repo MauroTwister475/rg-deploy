@@ -12,14 +12,14 @@ interface RelatoryItemProps {
 
 export function RelatoryItem({ id, title, Icon, create_at }: RelatoryItemProps) {
   return (
-    <div className="w-full shadow-sm h-14 rounded-lg bg-white border px-6 flex items-center justify-between">
-      <span className="text-gray-500 flex items-center gap-2">
+    <div className="w-full text-center shadow-sm bg-white px-6 h-12 rounded-md bg-red border p-4 flex items-center justify-between">
+      <span className="w-full text-start text-gray-500 flex items-center gap-2">
         {Icon}{title}
       </span>
-      <span className="text-gray-500">
+      <span className="w-[50%] text-gray-500">
         {create_at}
       </span>
-      <div className="w-max flex items-center gap-4 text-gray-500">
+      <div className="w-full text-end flex justify-end text-gray-500">
         <Link href={`/print/${id}`}>
           <Eye size={20} />
         </Link>
