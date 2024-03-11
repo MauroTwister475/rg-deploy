@@ -114,11 +114,9 @@ export default function Print({ params: { id } }: PrintProps) {
           </span>
         </div>
         <h1>Resumo</h1>
-        <textarea
-          className="w-[95%] text-justify border bg-white max-h-max border-black  p-4"
-          disabled
-          value={report?.summary}
-        ></textarea>
+        <div className="w-[95%] text-justify border bg-white max-h-max h-auto resize-none border-black  p-4">
+          {report?.summary}
+        </div>
         <div className="w-full flex flex-col gap-4 mt-4 px-6">
           <DataContent content="Comentário:">
             <span>
