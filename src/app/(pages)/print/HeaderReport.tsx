@@ -11,7 +11,7 @@ export default function HeaderReport() {
           <span>Ministério da Educação</span>
         </h1>
       </div>
-      <Image src={unesco} alt="unesco" className="w-76" />
+      <Image src={unesco} alt="unesco" className="w-96" />
     </div>
   )
 }
