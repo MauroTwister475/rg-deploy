@@ -1,5 +1,6 @@
 "use client";
 import { ContryData } from "@/app/@types/Types";
+import { SkeletonRelatory } from "@/app/components/Skeleton/Relatory";
 import { UseVotation } from "@/app/hooks/useVotation";
 
 export function ContryItem() {
@@ -27,7 +28,7 @@ export function ContryItem() {
         </select>
       </div>
     ))
-      : <h1>Carregando lista de membros...</h1>
+      : <SkeletonRelatory />
   }
 
   return (

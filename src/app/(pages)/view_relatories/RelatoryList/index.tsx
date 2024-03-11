@@ -4,8 +4,8 @@ import { RelatoryItem } from "../RelatoryItem";
 import { RelatoryProps } from "@/app/@types/Types"
 import { SkeletonRelatory } from "@/app/components/Skeleton/Relatory";
 import { File } from "lucide-react";
-import axios from "axios";
 import { URLBACK } from "@/app/constants/URL";
+import axios from "axios";
 
 export function RelatoryList() {
   const [reports, setReports] = useState<RelatoryProps[]>([]);
@@ -27,7 +27,7 @@ export function RelatoryList() {
               key={report.id}
               id={report.id}
               Icon={<File className="text-gray-500" />}
-              title={report.title}
+              theme={report.theme}
               create_at={report.create_at}
             />
           ))

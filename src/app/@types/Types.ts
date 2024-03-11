@@ -1,7 +1,7 @@
 
 export type RelatoryProps = {
   id: number,
-  title: string,
+  theme: string,
   create_at: Date,
 }
 
@@ -58,4 +58,38 @@ export interface IUser {
   email: string,
   image?: string,
   token: string,
+}
+
+
+export type ReportContries = {
+  votoscontra: {
+    id: number,
+    status: string,
+    members: [
+      {
+        id: number,
+        name: string,
+      },
+    ]
+  },
+  votosfavor: {
+    id: number,
+    status: string,
+    members: [
+      {
+        id: number,
+        name: string,
+      },
+    ]
+  },
+  votosemabstencao: {
+    id: number,
+    status: string,
+    members: [
+      {
+        id: number,
+        name: string,
+      },
+    ]
+  },
 }

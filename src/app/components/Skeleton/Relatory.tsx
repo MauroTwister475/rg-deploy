@@ -1,7 +1,5 @@
 
 export function SkeletonRelatory() {
-  // const res = await prisma.report.findMany();
-  // const reportsLength = res.length;
   return (
     <>
       {Array.from({ length: 5 }).map((skeleton, index) => (

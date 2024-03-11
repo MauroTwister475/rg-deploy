@@ -1,19 +1,19 @@
 'use client';
+import { FormEvent, useState } from "react";
 import { Form } from "@/app/components/Form";
-import { Loading } from "@/app/components/Loading";
-import ListContries from "../ListContries";
-import { Root } from "..";
-import { Toast } from "@/app/utils/FeedBack/Toast";
 import { UseVotation } from "@/app/hooks/useVotation";
 import { useFormData } from "@/app/hooks/useFormData";
-import { FormEvent, useState } from "react";
-import axios from "axios"
+import { Loading } from "@/app/components/Loading";
+import { Toast } from "@/app/utils/FeedBack/Toast";
 import { URLBACK } from "@/app/constants/URL";
+import ListContries from "../ListContries";
+import { Root } from "..";
+import axios from "axios"
 
 export function RelatoryForm() {
   const { onSetIsOpen, isOpen } = Root.useModal();
   const { agree, disagree, abst } = UseVotation();
-  const { setFormData, formData } = useFormData();
+  const { setFormData, formData, resetFormData } = useFormData();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -40,18 +40,10 @@ export function RelatoryForm() {
         title
       } = formData;
 
-      // so gera se selecionar pelomenos um contries criar um booelean q estara no contexo para a verificação
       setIsSubmitting(true);
-      const res1 = await axios.post(`${URLBACK}/votosfavor`, { agree });
-      const res2 = await axios.post(`${URLBACK}/votoscontra`, { disagree });
-      const res3 = await axios.post(`${URLBACK}/votosabstencao`, { abst });
-      console.log("console de teste: ")
-
-      console.log(
-        res1.data,
-        res2.data,
-        res3.data,
-      ); 
+      await axios.post(`${URLBACK}/votosfavor`, { agree });
+      await axios.post(`${URLBACK}/votoscontra`, { disagree });
+      await axios.post(`${URLBACK}/votosabstencao`, { abst });
 
       const votosfavor = ((await axios.get(`${URLBACK}/votosfavor`))).data;
       const votoscontra = ((await axios.get(`${URLBACK}/votoscontra`))).data;
@@ -75,27 +67,12 @@ export function RelatoryForm() {
         votosemabstencao: votosemabstencao?.id,
       });
       setIsSubmitting(false);
-      setFormData({
-        theme: '',
-        title: '',
-        point: '',
-        reference: '',
-        atribuition: '',
-        cod_document: '',
-        Angola_participation: '',
-        decision: '',
-        summary: '',
-        meeting_number: '',
-        comment: '',
-        create_at: '',
-        votoscontra: null,
-        votosfavor: null,
-        votosemabstencao: null,
-      });
+      resetFormData();
 
       Root.SucessMessage("Relatório criado com sucesso!");
     } catch (error) {
-      Root.ErrorMessage("Algo deu errado");
+      Root.ErrorMessage("Erro ao conectar o servidor.\nTente mais tarde.");
+      resetFormData();
       setIsSubmitting(false);
     }
   }
@@ -252,7 +229,7 @@ export function RelatoryForm() {
       </Root.InputGroup>
       <Form.Button
         type="submit"
-        className={`w-max px-6 ml-auto rounded-md ${isSubmitting && 'cursor-not-allowed'} bg-main-500 disabled:cursor-not-allowed cursor-pointer`}
+        className={` px-6 ml-auto rounded-md ${isSubmitting ? 'w-max cursor-not-allowed': "w-48"} bg-main-500 disabled:cursor-not-allowed cursor-pointer`}
       >
         {isSubmitting ? <Loading /> : "Gerar"}
       </Form.Button>

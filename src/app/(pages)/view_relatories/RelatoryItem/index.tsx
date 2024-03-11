@@ -6,15 +6,15 @@ import { Eye } from "lucide-react"
 interface RelatoryItemProps {
   id: number,
   Icon: ReactNode,
-  title: string,
+  theme: string,
   create_at: any,
 }
 
-export function RelatoryItem({ id, title, Icon, create_at }: RelatoryItemProps) {
+export function RelatoryItem({ id, theme, Icon, create_at }: RelatoryItemProps) {
   return (
     <div className="w-full text-center shadow-sm bg-white px-6 h-12 rounded-md bg-red border p-4 flex items-center justify-between">
       <span className="w-full text-start text-gray-500 flex items-center gap-2">
-        {Icon}{title}
+        {Icon}{theme}
       </span>
       <span className="w-[50%] text-gray-500">
         {new Date(create_at).toLocaleString("BR", {

@@ -5,6 +5,7 @@ import { Report } from "../@types/Types";
 interface FormDataContextProps {
   formData: Report,
   setFormData: React.Dispatch<React.SetStateAction<Report>>;
+  resetFormData: () => void;
 }
 
 const FormDataContext = createContext<FormDataContextProps>(
@@ -33,8 +34,28 @@ export function FormDataProvider({ children }: FormDataProviderProps) {
     votosemabstencao: null,
   });
 
+  function resetFormData() {
+    setFormData({
+      theme: '',
+      title: '',
+      point: '',
+      reference: '',
+      atribuition: '',
+      cod_document: '',
+      Angola_participation: '',
+      decision: '',
+      summary: '',
+      meeting_number: '',
+      comment: '',
+      create_at: '',
+      votoscontra: null,
+      votosfavor: null,
+      votosemabstencao: null,
+    });
+  }
+
   return (
-    <FormDataContext.Provider  value={{ formData, setFormData }}>
+    <FormDataContext.Provider  value={{ formData, setFormData, resetFormData }}>
       {children}
     </FormDataContext.Provider>
   );

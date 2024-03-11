@@ -12,7 +12,7 @@ export function ButtonCloseModal({ setIsOpen, className }: ButtonCloseProps) {
       type='button' 
       onClick={() => setIsOpen(false)}
     >
-      Fechar
+      Finalizar seleção
     </button>
   )
 }
