@@ -23,9 +23,7 @@ export default async function Dashboard() {
                 id={relatory?.id}
                 Icon={<File className="text-gray-500" />}
                 title={relatory?.title}
-                create_at={new Date(relatory?.create_at).toLocaleString("pt", {
-                  dateStyle: "long",
-                })}
+                create_at={relatory?.create_at}
               />
             ))}
           </div>

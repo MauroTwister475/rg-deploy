@@ -116,7 +116,7 @@ export default function Print({ params: { id } }: PrintProps) {
         <div className="w-[95%] border flex flex-col border-black mt-2 text-center">
           <h1>Resumo</h1>
           <textarea
-            className="resize-none h-32 w-full bg-white outline-none text-sm p-4 text-black"
+            className="resize-none h-max w-full bg-white outline-none text-sm p-4 text-black"
             disabled
             value={report?.summary}
           >
