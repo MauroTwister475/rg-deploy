@@ -51,7 +51,7 @@ export function RelatoryForm() {
         res1.data,
         res2.data,
         res3.data,
-      ); // rtorno da 
+      ); 
 
       const votosfavor = ((await axios.get(`${URLBACK}/votosfavor`))).data;
       const votoscontra = ((await axios.get(`${URLBACK}/votoscontra`))).data;
@@ -96,6 +96,7 @@ export function RelatoryForm() {
       Root.SucessMessage("Relatório criado com sucesso!");
     } catch (error) {
       Root.ErrorMessage("Algo deu errado");
+      setIsSubmitting(false);
     }
   }
 
@@ -112,19 +113,19 @@ export function RelatoryForm() {
       <div className="w-full flex gap-4">
         <Root.InputGroup>
           <Form.Input
-            required
-            type="text"
-            label="Título"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-          <Form.Input
             type="text"
             label="Tema"
             name="theme"
             required
             value={formData.theme}
+            onChange={handleChange}
+          />
+          <Form.Input
+            required
+            type="text"
+            label="Título"
+            name="title"
+            value={formData.title}
             onChange={handleChange}
           />
           <Form.Input
@@ -161,7 +162,7 @@ export function RelatoryForm() {
             value={formData.point}
             onChange={handleChange}
           >
-            <option selected>Selecione uma opção</option>
+            <option selected className="text-gray-400">Selecione uma opção</option>
             {Root.POINTS.map(({ point }) => (
               <option value={point} key={point}>
                 {point}
@@ -176,9 +177,9 @@ export function RelatoryForm() {
             value={formData.reference}
             onChange={handleChange}
           >
-            <option disabled>Selecione uma opção</option>
+            <option selected className="text-gray-400">Selecione uma opção</option>
             {Root.REFERENCES.map(({ reference }) => (
-              <option key={reference} selected={formData.reference === reference}>
+              <option key={reference}>
                 {reference}
               </option>
             ))}
@@ -227,7 +228,7 @@ export function RelatoryForm() {
             Resumo
           </label>
           <textarea
-            className='w-full h-20 bg-gray-50 border resize-none uppercase border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block p-2 focus:border-blue-600'
+            className='w-full h-20 bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block p-2 focus:border-blue-600'
             value={formData.summary}
             name="summary"
             onChange={handleChange}
@@ -241,7 +242,7 @@ export function RelatoryForm() {
             Comentário
           </label>
           <textarea
-            className='w-full h-20 bg-gray-50 border resize-none uppercase border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block p-2 focus:border-blue-600'
+            className='w-full h-20 bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block p-2 focus:border-blue-600'
             value={formData.comment}
             name="comment"
             onChange={handleChange}

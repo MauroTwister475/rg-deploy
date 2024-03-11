@@ -110,18 +110,15 @@ export default function Print({ params: { id } }: PrintProps) {
           <span className="">
             {new Date(report!?.create_at).toLocaleString("pt", {
               dateStyle: "full",
-            }).replace(/\b([a-z])/g, function(match) { return match.toUpperCase(); }).replace(/\bDe\b/g, "de").replace(/\bO\b/g, "o")}
+            }).replace(/\b([a-z])/g, function (match) { return match.toUpperCase(); }).replace(/\bDe\b/g, "de").replace(/\bO\b/g, "o").replace(/\bA\b/g, "a")}
           </span>
         </div>
-        <div className="w-[95%] border flex flex-col border-black mt-2 text-center">
-          <h1>Resumo</h1>
-          <textarea
-            className="resize-none h-max w-full bg-white outline-none text-sm p-4 text-black"
-            disabled
-            value={report?.summary}
-          >
-          </textarea>
-        </div>
+        <h1>Resumo</h1>
+        <textarea
+          className="w-[95%] text-justify border bg-white max-h-max border-black  p-4"
+          disabled
+          value={report?.summary}
+        ></textarea>
         <div className="w-full flex flex-col gap-4 mt-4 px-6">
           <DataContent content="Comentário:">
             <span>
@@ -137,7 +134,7 @@ export default function Print({ params: { id } }: PrintProps) {
           <DataContent content="Participação de Angola:">
             {report?.Angola_participation}
           </DataContent>
-          <DataContent content="Países a favor:">
+          <DataContent content="Países e organizações favor:">
             {contriesVote?.votosfavor?.members.map((contry: any, index: number) => (
               <span>
                 {contry.name}
@@ -145,26 +142,25 @@ export default function Print({ params: { id } }: PrintProps) {
               </span>
             ))}
           </DataContent>
-          <DataContent content="Países contra:">
+          <DataContent content="Países e organizações contra:">
             {contriesVote?.votoscontra?.members.map((contry: any, index: number) => (
               <span>
                 {contry.name}
-                {index === contriesVote.votosfavor.members.length - 1 ? '.' : ','}&nbsp;
+                {index === contriesVote.votoscontra.members.length - 1 ? '.' : ','}&nbsp;
               </span>
             ))}
           </DataContent>
-          <DataContent content="Países que se abstiveram:">
+          <DataContent content="Países e organizações que se abstiveram:">
             {contriesVote?.votosemabstencao?.members.map((contry: any, index: number) => (
               <span>
                 {contry.name}
-                {index === contriesVote.votosfavor.members.length - 1 ? '.' : ','}&nbsp;
+                {index === contriesVote.votosemabstencao.members.length - 1 ? '.' : ','}&nbsp;
               </span>
             ))}
           </DataContent>
           <DataContent content="Decisão:">
             {report?.decision}
           </DataContent>
-
         </div>
       </div>
 
