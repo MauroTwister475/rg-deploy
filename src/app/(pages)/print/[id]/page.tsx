@@ -51,6 +51,7 @@ type ReportContries = {
 
 export default function Print({ params: { id } }: PrintProps) {
   const [report, setReport] = useState<Report>();
+  const [date, setDate] = useState("");
   const [contriesVote, setContriesVote] = useState<ReportContries>();
   const relatoryRef = useRef<HTMLDivElement | null>(null);
 
@@ -63,6 +64,7 @@ export default function Print({ params: { id } }: PrintProps) {
     async function getReports() {
       const res = await axios.get<Report>(`${URLBACK}/report/view-report/${id}`);
       setReport(res.data);
+      setDate(res.data?.create_at)
     }
 
     async function getReportById() {
@@ -102,13 +104,13 @@ export default function Print({ params: { id } }: PrintProps) {
         <div className="w-full flex items-end flex-col justify-between px-6">
           <h2 className="font-bold text-md">{report?.cod_document} EX/4.I.E</h2>
           <h1>
-            <span className="font-bold text-end ">Conselho Executivo</span> <br />
+            <span className="font-bold text-end">Conselho Executivo</span> <br />
             <span className="mr-auto">{report?.meeting_number}ª reunião</span>
           </h1>
-          <span>
-            {new Date(report!?.create_at).toLocaleString("BR", {
+          <span className="">
+            {new Date(report!?.create_at).toLocaleString("pt", {
               dateStyle: "full",
-            })}
+            }).replace(/\b([a-z])/g, function(match) { return match.toUpperCase(); }).replace(/\bDe\b/g, "de").replace(/\bO\b/g, "o")}
           </span>
         </div>
         <div className="w-[95%] border flex flex-col border-black mt-2 text-center">

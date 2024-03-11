@@ -1,17 +1,5 @@
-
-const test = "12-12-2024";
-
-const refine = test.split(" ");
-
-const form = new Date(test).toLocaleString("BR", {
+const dsa = new Date("2024-03-1").toLocaleString("pt", {
   dateStyle: "full",
-})
-refine.forEach(word => {
-  if(word.length >= 5) {
-    console.log(word.charAt(0).toUpperCase());
-  }
-});
+}).toUpperCase().replace(/D/gi, "d")
 
-console.log(form);
-
-
+console.log(dsa)
