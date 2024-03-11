@@ -20,7 +20,7 @@ export function RelatoryList() {
   }, []);
 
   return (
-      <div className="w-full scroll h-[26rem] py-4 overflow-auto flex flex-col gap-2 px-3 items-center justify-">
+      <div className="w-full scroll h-[26rem] py-4 overflow-auto flex flex-col gap-2 px-3 items-center">
         {reports.length === 0 ? <SkeletonRelatory />
           : reports.map(report => (
             <RelatoryItem

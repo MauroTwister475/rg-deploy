@@ -7,7 +7,7 @@ import { URLBACK } from "@/app/constants/URL";
 import axios from "axios";
 
 export default async function Dashboard() {
-  // const reports = (await axios.get(`${URLBACK}/report/view-recents`)).data;
+  const reports = (await axios.get(`${URLBACK}/report/view-recents`)).data;
 
   return (
     <PageRoot classeName="w-full">
@@ -16,18 +16,18 @@ export default async function Dashboard() {
         <DashMap />
         <div className="w-full">
           <TitleSection title="Relatórios Recentes" />
-          <div className="w-full flex flex-col gap-2 mt-6">
-            {/* {reports?.map((relatory: any) => (
+          <div className="w-full flex flex-col gap-2 mt-6 scroll h-[26rem] py-4 px-3 overflow-auto">
+            {reports?.map((relatory: any) => (
               <RelatoryItem
                 key={relatory?.id}
                 id={relatory?.id}
                 Icon={<File className="text-gray-500" />}
                 title={relatory?.title}
-                create_at={new Date(relatory?.create_at).toLocaleString("pt-BR", {
+                create_at={new Date(relatory?.create_at).toLocaleString("pt", {
                   dateStyle: "long",
                 })}
               />
-            ))} */}
+            ))}
           </div>
         </div>
       </div>

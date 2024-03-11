@@ -103,7 +103,7 @@ export function RelatoryForm() {
     <form
       method="post"
       onSubmit={onHandleSubmit}
-      className="w-full m-auto h-max text-left align-middle flex flex-col gap-2 items-center  py-6 px-10 rounded-md bg-white shadow2"
+      className="w-full m-auto h-max text-left align-middle flex flex-col -mt-16 gap-2 items-center  py-6 px-10 rounded-md bg-white shadow2"
     >
       <h3 className="text-lg text-gray-500 mr-auto font-semibold">
         Novo Relatório
