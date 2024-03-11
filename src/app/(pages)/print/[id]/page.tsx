@@ -78,12 +78,12 @@ export default function Print({ params: { id } }: PrintProps) {
   return (
     <ScrollArea className="flex gap-4 items-center justify-center">
       <div ref={relatoryRef} className="w-[793px] h-max pb-2 px-4 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2">
-        <div className="w-full flex items-center justify-between">
-          <div className="w-max flex flex-col text-center items-center justify-center uppercase">
+        <div className="w-full flex items-center justify-between ">
+          <div className="w-max flex flex-col text-center items-center justify-center">
             <Image className="w-24" src={insignia} alt="logo" />
-            <h1 className="text-sm">
-              República de angola <br />
-              <span>Ministério da educação</span>
+            <h1 className="text-sm -mt-2 font-semibold">
+              República de Angola <br />
+              <span>Ministério da Educação</span>
             </h1>
           </div>
           <Image src={unesco} alt="unesco" className="w-76 " />
