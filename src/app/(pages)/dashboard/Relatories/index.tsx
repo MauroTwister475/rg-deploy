@@ -18,6 +18,7 @@ export function Relatories() {
     getRecentsReport()
   }, [])
 
+
   return (
     <div className="w-full flex flex-col gap-2 scroll h-[26rem] py-4 px-3 overflow-auto">
       {recentsReports?.length === 0 ? <SkeletonRelatory /> :

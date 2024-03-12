@@ -121,6 +121,12 @@ export default function Print({ params: { id } }: PrintProps) {
             <DataContent content="Decisão:">
               {report?.decision}
             </DataContent>
+            <DataContent className="mt-6">
+              <p className="text-gray-400 text-sm">
+                Construção do modelo: IPIL: Afonso Silva, Mauro Raimundo e 
+                <br /> Coordenação: MED: Paula Henriques
+              </p>
+            </DataContent>
           </div>
         </div> : <SkeletonRelatoryPage />
       }
