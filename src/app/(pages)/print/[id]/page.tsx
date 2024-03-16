@@ -42,7 +42,7 @@ export default function Print({ params: { id } }: PrintProps) {
   return (
     <ScrollArea className="flex gap-4 items-center justify-center">
       {report !== undefined ?
-        <div ref={relatoryRef} className="w-[793px] h-max pb-2 px-4 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2">
+        <div ref={relatoryRef} className="w-[793px] relative h-max pb-8 px-4 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2">
           <HeaderReport />
           <section className="w-full h-full flex gap-2 flex-col mt-6">
             <DataContent content="" className="text-center">
@@ -122,7 +122,7 @@ export default function Print({ params: { id } }: PrintProps) {
               {report?.decision}
             </DataContent>
             <DataContent className="mt-6">
-              <p className="text-gray-400 text-sm">
+              <p className="text-black text-md absolute w-full bottom-4">
                 Construção do modelo: IPIL: Afonso Silva, Mauro Raimundo e 
                 <br /> Coordenação: MED: Paula Henriques
               </p>
