@@ -25,7 +25,7 @@ export default function RootLayout({ children }: {
   children: ReactNode, types: ReactNode
 }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en">
       <body className={`w-screen h-screen bg-shape-100 antialiased ${poppins.className}`}>
         <FormDataProvider>
           <ModalContextProvider>
