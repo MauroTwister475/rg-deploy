@@ -52,3 +52,15 @@ body, html {
   line-height: 0;
   cursor: pointer;
 }
+
+@media print {
+  /* Define o estilo do rodapé */
+  .page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    padding: 14px 10px;
+    font-size: 12px;
+  }
+}

@@ -121,10 +121,11 @@ export default function Print({ params: { id } }: PrintProps) {
             <DataContent content="Decisão:">
               {report?.decision}
             </DataContent>
-            <DataContent className="mt-6">
-              <p className="text-black text-md absolute w-full bottom-4">
-                Construção do modelo: IPIL: Afonso Silva, Mauro Raimundo e 
-                <br /> Coordenação: MED: Paula Henriques
+            <DataContent className="mt-6 page-footer">
+              <p className="text-black text-[12px]">
+                Construção do modelo: IPIL - Afonso da Silva, Mauro Raimundo, João Simão e Miguel Manuel
+                <br />
+                Coordenação: Doutora Paula Henriques
               </p>
             </DataContent>
           </div>

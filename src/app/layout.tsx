@@ -26,7 +26,7 @@ export default function RootLayout({ children }: {
 }) {
   return (
     <html lang="en" className={poppins.className}>
-      <body className="w-screen h-screen bg-shape-100 antialiased">
+      <body className={`w-screen h-screen bg-shape-100 antialiased ${poppins.className}`}>
         <FormDataProvider>
           <ModalContextProvider>
             <VotationContextProvider>

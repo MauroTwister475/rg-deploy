@@ -1,8 +1,9 @@
+import { URLBACK } from "@/app/constants/URL";
 import { revalidateTag } from "next/cache";
 
 export async function getStatsReport() {
   try {
-    const TotRelatory = (await fetch("http://localhost:3333/reports", {
+    const TotRelatory = (await fetch(`${URLBACK}/report/quantity`, {
       next: {
         tags: ['totRel'],
       }
