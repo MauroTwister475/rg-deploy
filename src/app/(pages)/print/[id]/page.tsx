@@ -128,7 +128,7 @@ export default function Print({ params: { id } }: PrintProps) {
               {report?.author}
             </DataContent>
             <DataContent className="mt-6 page-footer">
-              <p className="text-black text-[12px]">
+              <p className="text-black text-[6.5px]">
                 Construção do modelo: IPIL - Afonso da Silva, Mauro Raimundo, João Simão e Miguel Manuel
                 <br />
                 Coordenação: Doutora Paula Henriques
