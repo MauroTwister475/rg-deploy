@@ -121,6 +121,9 @@ export default function Print({ params: { id } }: PrintProps) {
             <DataContent content="Decisão:">
               {report?.decision}
             </DataContent>
+            <DataContent content="Autor/a:">
+              {report?.author}
+            </DataContent>
             <DataContent className="mt-6 page-footer">
               <p className="text-black text-[12px]">
                 Construção do modelo: IPIL - Afonso da Silva, Mauro Raimundo, João Simão e Miguel Manuel
