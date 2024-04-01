@@ -118,6 +118,9 @@ export default function Print({ params: { id } }: PrintProps) {
                 ))}
               </DataContent> : <></>
             }
+            <DataContent content="Tendências">
+              {report?.tendencies}
+            </DataContent>
             <DataContent content="Decisão:">
               {report?.decision}
             </DataContent>
