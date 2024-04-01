@@ -33,6 +33,8 @@ export type Report = {
 	votoscontra: number | null,
 	votosfavor: number | null,
 	votosemabstencao: number | null,
+  author: string,
+  tendencies: string
 }
 
 // type UserAuth api

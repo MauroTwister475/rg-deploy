@@ -7,6 +7,10 @@ body, html {
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
+
+* {
+  font-family: var(--font-poppins);
+}
  .anima {
   transition: 0.3s ease;
 } 
@@ -54,7 +58,6 @@ body, html {
 }
 
 @media print {
-  /* Define o estilo do rodapé */
   .page-footer {
     position: fixed;
     bottom: 0;

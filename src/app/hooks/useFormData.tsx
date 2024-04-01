@@ -32,6 +32,8 @@ export function FormDataProvider({ children }: FormDataProviderProps) {
     votoscontra: null,
     votosfavor: null,
     votosemabstencao: null,
+    author: '',
+    tendencies: ''
   });
 
   function resetFormData() {
@@ -51,6 +53,8 @@ export function FormDataProvider({ children }: FormDataProviderProps) {
       votoscontra: null,
       votosfavor: null,
       votosemabstencao: null,
+      author: '',
+      tendencies: '',
     });
   }
 

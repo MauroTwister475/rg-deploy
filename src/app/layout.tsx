@@ -9,8 +9,9 @@ import '@radix-ui/themes/styles.css';
 import "./globals.css";
 
 const poppins = Poppins({
-  weight: "400",
   subsets: ["latin"],
+  weight: ['100', '200', '300', '400'],
+  variable: '--font-poppins'
 });
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: {
 }) {
   return (
     <html lang="en">
-      <body className={`w-screen h-screen bg-shape-100 antialiased ${poppins.className}`}>
+      <body className={`w-screen h-screen bg-shape-100 antialiased ${poppins.variable}`}>
         <FormDataProvider>
           <ModalContextProvider>
             <VotationContextProvider>

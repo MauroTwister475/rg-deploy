@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { FormEvent, useState } from "react";
 import { Form } from "@/app/components/Form";
 import { UseVotation } from "@/app/hooks/useVotation";
@@ -8,7 +8,7 @@ import { Toast } from "@/app/utils/FeedBack/Toast";
 import { URLBACK } from "@/app/constants/URL";
 import ListContries from "../ListContries";
 import { Root } from "..";
-import axios from "axios"
+import axios from "axios";
 
 export function RelatoryForm() {
   const { onSetIsOpen, isOpen } = Root.useModal();
@@ -16,9 +16,13 @@ export function RelatoryForm() {
   const { setFormData, formData, resetFormData } = useFormData();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData((prevValues) => ({ ...prevValues, [name]: value, }));
+    setFormData((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
   async function onHandleSubmit(e: FormEvent) {
@@ -37,7 +41,9 @@ export function RelatoryForm() {
         reference,
         summary,
         theme,
-        title
+        title,
+        author,
+        tendencies,
       } = formData;
 
       setIsSubmitting(true);
@@ -45,9 +51,10 @@ export function RelatoryForm() {
       await axios.post(`${URLBACK}/votoscontra`, { disagree });
       await axios.post(`${URLBACK}/votosabstencao`, { abst });
 
-      const votosfavor = ((await axios.get(`${URLBACK}/votosfavor`))).data;
-      const votoscontra = ((await axios.get(`${URLBACK}/votoscontra`))).data;
-      const votosemabstencao = ((await axios.get(`${URLBACK}/votosabstencao`))).data;
+      const votosfavor = (await axios.get(`${URLBACK}/votosfavor`)).data;
+      const votoscontra = (await axios.get(`${URLBACK}/votoscontra`)).data;
+      const votosemabstencao = (await axios.get(`${URLBACK}/votosabstencao`))
+        .data;
 
       await axios.post(`${URLBACK}/report`, {
         theme: theme,
@@ -65,6 +72,8 @@ export function RelatoryForm() {
         votoscontra: votoscontra?.id,
         votosfavor: votosfavor?.id,
         votosemabstencao: votosemabstencao?.id,
+        author: author,
+        tendencies: tendencies,
       });
       setIsSubmitting(false);
       resetFormData();
@@ -88,7 +97,7 @@ export function RelatoryForm() {
       </h3>
       <Toast position="top-right" />
       <div className="w-full flex gap-4">
-        <Root.InputGroup>
+        <Root.InputGroup className="gap-3.5">
           <Form.Input
             type="text"
             label="Tema"
@@ -108,21 +117,21 @@ export function RelatoryForm() {
           <Form.Input
             required
             type="text"
-            label="Decisão"
-            name="decision"
-            value={formData.decision}
+            label="Tendências"
+            name="tendencies"
+            value={formData.tendencies}
             onChange={handleChange}
           />
           <Form.Input
             required
             type="text"
-            label="Número da reunião"
-            name="meeting_number"
-            value={formData.meeting_number}
+            label="Decisão"
+            name="decision"
+            value={formData.decision}
             onChange={handleChange}
           />
         </Root.InputGroup>
-        <Root.InputGroup className="gap-2 m5-5">
+        <Root.InputGroup className="gap- m5-5">
           <Form.Input
             required
             type="text"
@@ -139,7 +148,9 @@ export function RelatoryForm() {
             value={formData.point}
             onChange={handleChange}
           >
-            <option selected className="text-gray-400">Selecione uma opção</option>
+            <option selected className="text-gray-300 lowercase">
+              Selecione uma opção
+            </option>
             {Root.POINTS.map(({ point }) => (
               <option value={point} key={point}>
                 {point}
@@ -154,14 +165,21 @@ export function RelatoryForm() {
             value={formData.reference}
             onChange={handleChange}
           >
-            <option selected className="text-gray-400">Selecione uma opção</option>
+            <option selected className="text-gray-300 lowercase">
+              Selecione uma opção
+            </option>
             {Root.REFERENCES.map(({ reference }) => (
-              <option key={reference}>
-                {reference}
-              </option>
+              <option key={reference}>{reference}</option>
             ))}
           </Form.Select>
-
+          <Form.Input
+            required
+            type="text"
+            label="Número da reunião"
+            name="meeting_number"
+            value={formData.meeting_number}
+            onChange={handleChange}
+          />
         </Root.InputGroup>
         <Root.InputGroup>
           <Form.Input
@@ -190,7 +208,7 @@ export function RelatoryForm() {
           />
           <Form.Button
             type="button"
-            className="w-48 ml-auto bg-main-500 hover:bg-main-700"
+            className="w-48 ml-auto mt-7 bg-main-500 hover:bg-main-700"
             onClick={() => onSetIsOpen()}
           >
             Selecionar Países
@@ -199,40 +217,47 @@ export function RelatoryForm() {
       </div>
       <Root.InputGroup className="flex items-center flex-row">
         <div className="w-full flex flex-col">
-          <label
-            className="text-[14px] text-gray-500 font-semibold"
-          >
+          <label className="text-[14px] text-gray-500 font-semibold">
             Resumo
           </label>
           <textarea
-            className='w-full h-20 bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block p-2 focus:border-blue-600'
+            className="w-full h-20 bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block p-2 focus:border-blue-600"
             value={formData.summary}
             name="summary"
             onChange={handleChange}
-          >
-          </textarea>
+          ></textarea>
         </div>
         <div className="w-full flex flex-col">
-          <label
-            className="text-[14px] text-gray-500 font-semibold"
-          >
+          <label className="text-[14px] text-gray-500 font-semibold">
             Comentário
           </label>
           <textarea
-            className='w-full h-20 bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block p-2 focus:border-blue-600'
+            className="w-full h-20 bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block p-2 focus:border-blue-600"
             value={formData.comment}
             name="comment"
             onChange={handleChange}
-          >
-          </textarea>
+          ></textarea>
         </div>
       </Root.InputGroup>
-      <Form.Button
-        type="submit"
-        className={` px-6 ml-auto rounded-md ${isSubmitting ? 'w-max cursor-not-allowed': "w-48"} bg-main-500 disabled:cursor-not-allowed cursor-pointer`}
-      >
-        {isSubmitting ? <Loading /> : "Gerar"}
-      </Form.Button>
+      <div className="w-full flex justify-between items-center mt-3">
+        <Form.Input
+          required
+          type="text"
+          label="Autor/a"
+          name="author"
+          className="w-[50%]"
+          value={formData.author}
+          onChange={handleChange}
+        />
+        <Form.Button
+          type="submit"
+          className={`px-6 ml-auto rounded-md ${
+            isSubmitting ? "w-max cursor-not-allowed" : "w-48"
+          } bg-main-500 disabled:cursor-not-allowed cursor-pointer`}
+        >
+          {isSubmitting ? <Loading /> : "Gerar"}
+        </Form.Button>
+      </div>
       <Root.ModalAction
         title="Selecionar Países"
         isOpen={isOpen}

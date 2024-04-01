@@ -36,7 +36,7 @@ export default function Login() {
         onSubmit={handleSubmit(handleLogin)}
         className="w-[54rem] h-full flex flex-col gap-2 items-center justify-center px-8 mb-24 lg:mb-0 lg:px-32"
       >
-        <TitleSection title="Faça o seu login" className="text-[1.5rem]" />
+        <TitleSection title="Faça o seu login" className="text-[1rem]" />
         <Toast position="top-right" />
         <div className="w-full flex flex-col gap-4 justify-center">
           <Form.Input

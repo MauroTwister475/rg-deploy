@@ -28,6 +28,9 @@ const config: Config = {
         input: {
           200: '#E8E8E9',
         }
+      },
+      fontFamily: {
+        sans: ['var(--font-poppins)'],
       }
     },
   },
