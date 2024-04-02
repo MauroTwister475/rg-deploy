@@ -140,23 +140,14 @@ export function RelatoryForm() {
             value={formData.Angola_participation}
             onChange={handleChange}
           />
-          <Form.Select
+          <Form.Input
             required
-            id="point"
+            type="text"
             label="Ponto"
             name="point"
             value={formData.point}
             onChange={handleChange}
-          >
-            <option selected className="text-gray-300 lowercase">
-              Selecione uma opção
-            </option>
-            {Root.POINTS.map(({ point }) => (
-              <option value={point} key={point}>
-                {point}
-              </option>
-            ))}
-          </Form.Select>
+          />
           <Form.Select
             id="refe"
             required
