@@ -131,7 +131,7 @@ export default function Print({ params: { id } }: PrintProps) {
               <p className="text-black text-[6.5px]">
                 Construção do modelo: IPIL - Afonso da Silva, Mauro Raimundo, João Simão e Miguel Manuel
                 <br />
-                Coordenação: Doutora Paula Henriques
+                Coordenação: Paula Henriques
               </p>
             </DataContent>
           </div>
