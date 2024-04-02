@@ -42,7 +42,7 @@ export default function Print({ params: { id } }: PrintProps) {
   return (
     <ScrollArea className="flex gap-4 items-center justify-center">
       {report !== undefined ?
-        <div ref={relatoryRef} className="w-[793px] relative h-max pb-8 relatory print: px-4 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2">
+        <div ref={relatoryRef} className="w-[793px] relative h-max pb-8 px-4 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2">
           <HeaderReport />
           <section className="w-full h-full flex gap-2 flex-col mt-6">
             <DataContent content="" className="text-center">
@@ -121,7 +121,7 @@ export default function Print({ params: { id } }: PrintProps) {
             <DataContent content="Tendências">
               {report?.tendencies}
             </DataContent>
-            <DataContent content="Decisão:">
+            <DataContent content="Decisão:" className="print:pb-24">
               {report?.decision}
             </DataContent>
             <DataContent content="Autor/a:">
