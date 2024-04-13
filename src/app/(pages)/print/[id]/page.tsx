@@ -25,7 +25,7 @@ export default function Print({ params: { id } }: PrintProps) {
     bodyClass: "bodyPrint",
     pageStyle: "@page { size: A4 portrait; margin-top: 10cm; } @media print { body { -webkit-print-color-adjust: exact; } }",
   });
-
+  
   useEffect(() => {
     async function getReports() {
       const res = await axios.get<Report>(

@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body, html {
+body,
+html {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -11,15 +12,15 @@ body, html {
 * {
   font-family: var(--font-poppins);
 }
- .anima {
+.anima {
   transition: 0.3s ease;
-} 
+}
 
 .shadowHeader {
-  box-shadow: 0 0 1rem #00000026 ;
+  box-shadow: 0 0 1rem #00000026;
 }
 .shadow2 {
-  box-shadow: 0 0 .3rem #00000026
+  box-shadow: 0 0 0.3rem #00000026;
 }
 
 .scrool {
@@ -46,7 +47,7 @@ body, html {
 *::-webkit-scrollbar-thumb {
   background: #3d3e4171;
   border-radius: 1.4rem;
-} 
+}
 
 .button-close {
   position: absolute;
@@ -71,7 +72,6 @@ body, html {
   /* padding-top: 20px; */
 }
 
-
 /* div#print:nth-of-type(2) {
   background-color: red;
 } */
@@ -84,3 +84,9 @@ body, html {
 } */
 
 
+@media print {
+  /* Define a margem superior de 4cm a partir da segunda página em diante */
+  @page {
+    margin-top: 4cm;
+  }
+}
