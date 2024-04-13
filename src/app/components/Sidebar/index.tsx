@@ -2,12 +2,14 @@ import { NAVBAR_LINKS } from "@/app/constants/Links";
 import { NextLink } from "../NextLink";
 import { LogOut } from "lucide-react";
 import { SignOutButton } from "../SignOutButton";
+import logo from "@/app/assets/logo unesco.png"
+import Image from "next/image";
 
 export function SideBar() {
   return (
     <div className={`bg-main-500 h-screen navbar flex flex-col justify-between items-center p-4`}>
       <div className="text-white flex gap">
-        <img src="./logo unesco.png" alt='logo unesco' />
+        <Image src={logo} alt='logo unesco' />
       </div>
       <ul className="mt-[-3rem] flex flex-col gap-4 overflow-hidden mb-40">
         {NAVBAR_LINKS.map(link => (
