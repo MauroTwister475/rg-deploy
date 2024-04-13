@@ -6,7 +6,7 @@ export function LoginButton({ isSubmitting }: { isSubmitting: boolean}) {
     <Form.Button
       type="submit"
       disabled={isSubmitting}
-      className="rounded-md bg-main-500 disabled:cursor-not-allowed cursor-pointer mt-2"
+      className="rounded-md bg-main-500 disabled:cursor-not-allowed cursor-pointer mt-6"
     >
       {isSubmitting ? <Loading /> : "Entrar"}
     </Form.Button>
