@@ -36,6 +36,9 @@
     //             .replace(/\bDe\b/g, "de")
     //             .replace(/\bO\b/g, "o")
     //             .replace(/\bA\b/g, "a")}
+
+
+    
     //         </span>
     //       </div>
     //       <h1>Resumo</h1>

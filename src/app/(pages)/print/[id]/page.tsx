@@ -23,9 +23,10 @@ export default function Print({ params: { id } }: PrintProps) {
   const onPrintReport = useReactToPrint({
     content: () => relatoryRef?.current,
     bodyClass: "bodyPrint",
-    pageStyle: "@page { size: A4 portrait; margin-top: 10cm; } @media print { body { -webkit-print-color-adjust: exact; } }",
+    pageStyle:
+      "@page { size: A4 portrait; margin-top: 10cm; } @media print { body { -webkit-print-color-adjust: exact; } }",
   });
-  
+
   useEffect(() => {
     async function getReports() {
       const res = await axios.get<Report>(
@@ -97,7 +98,10 @@ export default function Print({ params: { id } }: PrintProps) {
                     })
                     .replace(/\bDe\b/g, "de")
                     .replace(/\bO\b/g, "o")
-                    .replace(/\bA\b/g, "a")}
+                    .replace(/\bA\b/g, "a")
+                    .replace(/\bFeira\b/g, function (match) {
+                      return match.charAt(0).toLowerCase() + match.slice(1);
+                    })}
                 </>
               )}
             </span>
