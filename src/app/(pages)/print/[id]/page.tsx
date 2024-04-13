@@ -23,8 +23,7 @@ export default function Print({ params: { id } }: PrintProps) {
   const onPrintReport = useReactToPrint({
     content: () => relatoryRef?.current,
     bodyClass: "bodyPrint",
-    pageStyle:
-      "@page { size: A4 portrait; margin-top: 10cm; } @media print { body { -webkit-print-color-adjust: exact; } }",
+    pageStyle: "@page { size: A4 portrait; margin-top: 10cm; } @media print { body { -webkit-print-color-adjust: exact; } }",
   });
 
   useEffect(() => {
@@ -49,6 +48,7 @@ export default function Print({ params: { id } }: PrintProps) {
     <ScrollArea className="flex gap-4 items-center justify-center">
       {report !== undefined ? (
         <div
+          id="print"
           ref={relatoryRef}
           className="w-[793px] relative h-max pb-8 px-4 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2"
         >
@@ -181,7 +181,7 @@ export default function Print({ params: { id } }: PrintProps) {
               </DataContent>
             )}
             {report.decision && (
-              <DataContent content="Decisão:" className="print:mt-32 pt-10">
+              <DataContent content="Decisão:" className="">
                 {report.decision}
               </DataContent>
             )}
@@ -210,3 +210,5 @@ export default function Print({ params: { id } }: PrintProps) {
     </ScrollArea>
   );
 }
+
+// decision styl  e: print:mt-32 pt-10
