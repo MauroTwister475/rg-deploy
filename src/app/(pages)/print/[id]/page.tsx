@@ -46,12 +46,6 @@ export default function Print({ params: { id } }: PrintProps) {
     getReportById();
   }, []);
 
-  console.log(report?.tendencies);
-
-  if(report?.tendencies !== undefined) {
-    alert("As tendencias existem");
-  }
-
   return (
       <ScrollArea className="flex gap-4 items-center justify-center">
         {report !== undefined ? (
