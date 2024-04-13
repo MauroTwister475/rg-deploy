@@ -87,6 +87,7 @@ html {
 @media print {
   /* Define a margem superior de 4cm a partir da segunda página em diante */
   @page {
-    margin-top: 4cm;
+    margin-top: 40cm;
+    background-color: red;
   }
 }
