@@ -11,7 +11,7 @@ export function PagesLayoutDefault({ children }: PagesLayoutDefaultProps) {
     <div className="h-screen w-screen flex flex-col">
       <main className="flex-1 h-full">
         <MarginWidthWrapper>
-          <Header />
+          {/* <Header /k> */}
           <PageWrapper>{children}</PageWrapper>
         </MarginWidthWrapper>
       </main>
