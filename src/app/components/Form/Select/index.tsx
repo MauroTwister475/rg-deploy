@@ -1,27 +1,29 @@
-import { ChangeEvent, ComponentProps, ReactNode } from "react";
+import { ReactNode, SelectHTMLAttributes, forwardRef } from 'react';
+import { twM } from '@/app/utils/twMerge';
 
-type SelectProps = ComponentProps<"select"> & {
+type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   id: string;
   label?: string;
-  children: ReactNode,
+  className?: string;
+  children: ReactNode;
 };
 
-export function Select({ id, children, label, ...rest }: SelectProps) {
-  return (
-    <div className="w-full">
-      <label
-        htmlFor={id}
-        className="text-[14px] text-gray-500 font-semibold"
-      >
-        {label}
-      </label>
-      <select
-        id={id}
-        {...rest}
-        className='bg-gray-50 border uppercase border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2 focus:border-blue-600'
-      >
-        {children}
-      </select>
-    </div>
-  );
-}
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
+  ({ id, label, className, name, children, ...rest }, ref) => {
+    return (
+      <div className="flex w-full flex-col gap-1.5">
+        <label className="text-sm">{label}</label>
+        <select
+          id={id}
+          ref={ref}
+          {...rest}
+          className={twM('w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-400 outline-gray-light focus:border-gray-100', className)}
+        >
+          {children}
+        </select>
+      </div>
+    );
+  },
+);
+
+Select.displayName = 'SelectForm';

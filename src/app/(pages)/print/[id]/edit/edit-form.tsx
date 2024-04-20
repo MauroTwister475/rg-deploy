@@ -4,16 +4,14 @@ import { UseVotation } from "@/app/hooks/useVotation";
 import { Loading } from "@/app/components/Loading";
 import { Toast } from "@/app/utils/FeedBack/Toast";
 import { URLBACK } from "@/app/constants/URL";
-import ListContries from "../ListContries";
-import { Root } from "..";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { relatorySchema, RelatorySchemType } from "./schema";
-import { FinalDataType } from "./types";
+import { RelatorySchemType, relatorySchema } from "@/app/(pages)/new_relatory/RelatoryForm/RelatoryForm/schema";
+import { Root } from "@/app/(pages)/new_relatory/RelatoryForm";
+import axios from "axios";
+import ListContries from "@/app/(pages)/new_relatory/RelatoryForm/ListContries";
 
-
-export function RelatoryForm() {
+export function FormEditRelatory() {
   const { onSetIsOpen, isOpen } = Root.useModal();
   const { agree, disagree, abst } = UseVotation();
 
@@ -33,14 +31,13 @@ export function RelatoryForm() {
       const votoscontra = (await axios.get(`${URLBACK}/votoscontra`)).data;
       const votosemabstencao = (await axios.get(`${URLBACK}/votosabstencao`)).data;
 
-      const finalData: FinalDataType = { 
+      const finalData = { 
         ...data,  
         votoscontra: votoscontra?.id,
         votosfavor: votosfavor?.id,
         votosemabstencao: votosemabstencao?.id,
       }
 
-      console.log(finalData);
       await axios.post(`${URLBACK}/report`, finalData);
       reset();
       Root.SucessMessage("Relatório criado com sucesso!");

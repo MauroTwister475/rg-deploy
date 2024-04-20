@@ -2,7 +2,7 @@
 export type RelatoryProps = {
   id: number,
   theme: string,
-  create_at: Date,
+  create_at: Date | string,
 }
 
 export type State = "Concorda" | "Discorda" | "Em abstenção" | null;

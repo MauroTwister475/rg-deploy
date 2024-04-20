@@ -1,35 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body,
-html {
-  overflow: hidden;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-}
-
+ 
 * {
   font-family: var(--font-poppins);
 }
-.anima {
-  transition: 0.3s ease;
+
+body, html {
+  overflow: hidden !important;
+  -webkit-font-smoothing: antialiased;
+  background-color: #F5F6FA;
+  scroll-behavior: smooth;
 }
 
+ .navbar, .transitionButton {
+  transition: width 0.3s ease;
+} 
+
 .shadowHeader {
-  box-shadow: 0 0 1rem #00000026;
-}
-.shadow2 {
-  box-shadow: 0 0 0.3rem #00000026;
+  box-shadow: 0 0 1rem #00000026 ;
 }
 
 .scrool {
   overflow: auto;
 }
-.main-overlay {
-  background: rgba(0, 0, 0, 0.7);
-}
-
 .main-overlay {
   background: rgba(0, 0, 0, 0.7);
 }
@@ -47,47 +41,10 @@ html {
 *::-webkit-scrollbar-thumb {
   background: #3d3e4171;
   border-radius: 1.4rem;
-}
-
-.button-close {
-  position: absolute;
-  border: 0;
-  top: 0.8rem;
-  right: 1rem;
-  line-height: 0;
-  cursor: pointer;
-}
-
-@media print {
-  .page-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: left;
-    padding: 14px 5px;
-  }
-}
-
-.bodyPrint {
-  /* padding-top: 20px; */
-}
-
-/* div#print:nth-of-type(2) {
-  background-color: red;
-} */
-
-/* @media print  {
-  :nth-child(n+2)  {
-    padding-top: 1.5rem; /* Adiciona um padding superior de 2cm 
-    background-color: red;
-  }
-} */
-
-
-@media print {
-  /* Define a margem superior de 4cm a partir da segunda página em diante */
-  @page {
-    margin-top: 40cm;
-    background-color: red;
-  }
+} 
+.my-config {
+  --darkmode: 0;
+  --h-accent: 223;
+  --s-accent: 100%;
+  --l-accent: 61%;
 }

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import unesco from "@/app/assets/unescoInsignia.jpg"
 import insignia from "@/app/assets/insignia.jpg"
+
 export default function HeaderReport() {
   return (
     <div className="w-full flex items-center justify-between ">

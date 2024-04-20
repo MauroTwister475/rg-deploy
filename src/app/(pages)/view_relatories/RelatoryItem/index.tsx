@@ -1,7 +1,6 @@
 "use client";
 import { ReactNode } from "react";
-import Link from "next/link"
-import { Eye } from "lucide-react"
+import { DropdownMenuOptions } from "./dropdown";
 
 interface RelatoryItemProps {
   id: number,
@@ -22,10 +21,10 @@ export function RelatoryItem({ id, theme, Icon, create_at }: RelatoryItemProps) 
         })}
       </span>
       <div className="w-full text-end flex justify-end text-gray-500">
-        <Link href={`/print/${id}`}>
-          <Eye size={20} />
-        </Link>
+        <DropdownMenuOptions relatory={{ create_at, id, theme }} />
       </div>
     </div>
-  )
+  ) 
+    
+  
 }
