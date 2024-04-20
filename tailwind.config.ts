@@ -29,6 +29,9 @@ const config: Config = {
           200: '#E8E8E9',
         }
       },
+      screens: {
+        'print': {'raw': 'print'},
+      },
       fontFamily: {
         sans: ['var(--font-poppins)'],
       }

@@ -42,9 +42,70 @@ body, html {
   background: #3d3e4171;
   border-radius: 1.4rem;
 } 
-.my-config {
-  --darkmode: 0;
-  --h-accent: 223;
-  --s-accent: 100%;
-  --l-accent: 61%;
+
+/* #print  */
+@media print {
+  body {
+    font-size: 12pt; 
+    color: black; 
+  }
+}
+
+@media print {
+  .page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    text-align: start;
+    padding: 10px 0;
+    overflow: hidden;
+  }
+}
+
+@media print {
+  .page-footer {
+    background-color: white;
+  }
+  @page {
+    @top-center {
+      content: "Cabeçalho à esquerda"; /* Texto a ser exibido no canto superior esquerdo */
+      color: blue; /* Cor do texto */
+      font-size: 12pt; /* Tamanho da fonte */
+      margin: 10mm; 
+    }
+  }
+}
+
+
+
+@media print {
+  .bodyPrint {
+    position: relative;
+    height: max-content;
+    width: 793px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@page {
+  size: portrait;
+  margin: 0%;
+  background-color: white;
+}
+
+section {
+  /* page-break-after: left; */
+  /* break-after: page; */
+}
+
+@media print {
+  button {
+    display: none;
+  }
+  #WHITEB {
+    background-color: white;
+  }
 }

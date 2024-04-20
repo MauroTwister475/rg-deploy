@@ -6,7 +6,7 @@ interface PageWrapperProps {
 
 export function PageWrapper({ children }: PageWrapperProps) {
   return (
-    <div className="h-full flex flex-col pt-8 px-12 space-y-2 bg-zinc-body flex-grow pb-12">
+    <div className="h-screen flex px-8 overflow-auto bg-zinc-body" id="WHITEB">
       {children}
     </div>
   );

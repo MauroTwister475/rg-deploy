@@ -5,7 +5,7 @@ import { Relatories } from "./Relatories";
 
 export default function Dashboard() {
   return (
-    <PageRoot classeName="w-full">
+    <PageRoot classeName="w-full mt-40">
       <TitleSection title="Dashboard" />
       <div className="w-full h-full flex flex-col gap-8 pt-6">
         <DashMap />

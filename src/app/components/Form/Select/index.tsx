@@ -17,7 +17,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           id={id}
           ref={ref}
           {...rest}
-          className={twM('w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-400 outline-gray-light focus:border-gray-100', className)}
+          className={twM('w-full rounded-md border border-gray-300 bg-white outline-none px-3 py-2 text-sm text-black outline-gray-light focus:border-blue-600', className)}
         >
           {children}
         </select>

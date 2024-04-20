@@ -51,7 +51,7 @@ export default function Print({ params: { id } }: PrintProps) {
         <div
           id="print"
           ref={relatoryRef}
-          className="w-[793px] relative print:h-auto pb-8 pt-4 px-4 pl-12 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2"
+          className="w-[793px] relative h-max pb-8 pt-4 px-4 pl-12 bg-white flex flex-col items-center justify-between mb-2 mx-auto gap-2"
         >
           <HeaderReport />
           <section className="w-full h-full flex gap-2 flex-col mt-6">
