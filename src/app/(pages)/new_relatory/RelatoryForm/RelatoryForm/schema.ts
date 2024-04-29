@@ -4,8 +4,7 @@ export const relatorySchema = z.object({
   theme: z.string().nonempty(),
   title: z.string().nonempty(),
   point: z.string().nonempty(),
-  reference: z.string().nonempty()
-  .refine((value: string) => value !== "Selecione uma opção", "Erro"),
+  reference: z.string().nonempty(),
   atribuition: z.string().nonempty(),
   cod_document: z.string().nonempty(),
   Angola_participation: z.string().nonempty(),

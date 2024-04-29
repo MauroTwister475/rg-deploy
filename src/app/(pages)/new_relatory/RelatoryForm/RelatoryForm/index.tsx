@@ -85,7 +85,7 @@ export function RelatoryForm() {
               Selecione uma opção
             </option>
             {Root.REFERENCES.map(({ reference }) => (
-              <option key={reference}>{reference}</option>
+              <option key={reference}>{reference as any}</option>
             ))}
           </Form.Select>
           <Form.Input
